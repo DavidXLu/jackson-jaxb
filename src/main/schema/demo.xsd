@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.edu.david.com/demo" xmlns:tns="http://www.edu.david.com/demo" attributeFormDefault="unqualified" elementFormDefault="qualified" version="2.0">
+	<complexType name="image">
+		<sequence>
+			<element name="url" type="string" />
+			<element name="size" type="int" minOccurs="0" />
+			<element name="width" type="int" minOccurs="0" />
+			<element name="height" type="int" minOccurs="0" />
+            <element name="title" type="string" minOccurs="0" />
+            <element name="name" type="string" minOccurs="0" />
+            <element name="description" type="string" minOccurs="0" />
+            <element name="shootTime" type="string" minOccurs="0" />
+            <element name="source" type="string" minOccurs="0" />
+            <element name="author" type="string" minOccurs="0" />
+            <element name="license" type="string" minOccurs="0" />
+            <element name="usageTerms" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="response">
+		<sequence>
+			<element name="brand" type="string" />
+			<element name="url" type="string" minOccurs="0" />
+			<element name="label" type="string" />
+			<element name="id" type="string" minOccurs="0" />
+			<element name="description" type="string" />
+			<element name="images" type="tns:image" minOccurs="0" maxOccurs="unbounded" />
+            <element name="attributions" type="tns:attribution" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="alias" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+    <complexType name="attribution">
+        <sequence>
+            <element type="string" name="id"/>
+            <element type="string" name="text" minOccurs="0"/>
+            <element type="string" name="url" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+	<element name="response" type="tns:response" />
+
+</schema>
